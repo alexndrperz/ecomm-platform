@@ -21,14 +21,14 @@ from .views import ProductView, SellerView, TransactsView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('products/', ProductView.as_view({'get':'get_all_products', 'post':'post_product'})),
-    path('products/<int:id>', ProductView.as_view({'get':'get_one_product', 'delete':'delete_product'})),
-    path('products/<int:sell_id>/<int:prod_id>', ProductView.as_view({'get':'get_url_product'})),
-    path('products/<str:sell_tokn>/<str:prod_tokn>', ProductView.as_view({'get':'get_url_based_product'})),
+    path('products/', ProductView.as_view({'get':'get_all_products', 'post':'post_product'}), name="Get all products and create them"),
+    path('products/<int:id>', ProductView.as_view({'get':'get_one_product', 'delete':'delete_product'}), name="Get or delete one product"),
+    path('products/<int:sell_id>/<int:prod_id>', ProductView.as_view({'get':'get_url_product'}), name="Get url of the product"),
+    path('products/<str:sell_tokn>/<str:prod_tokn>', ProductView.as_view({'get':'get_url_based_product'}), name="Get product based in url product and seller url "),
     
-    path('sellers/', SellerView.as_view({'get':'get_sellers','post':'create_seller'})),
+    path('sellers/', SellerView.as_view({'get':'get_sellers','post':'create_seller'}), name="Get or create sellers"),
 
-    path('seller/<str:tokn>', SellerView.as_view({'get':'get_seller_profile'})),
+    path('seller/<str:tokn>', SellerView.as_view({'get':'get_seller_profile'}), name="Get or create sellers"),
 
     path('transacts/', TransactsView.as_view({'get':'get_all_transacts','post':'create_transact'}))
 
