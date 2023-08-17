@@ -26,10 +26,14 @@ class ProductViewSerializer(serializers.ModelSerializer):
 class SellerSerializer(serializers.ModelSerializer):
     trans_count = serializers.SerializerMethodField()
     total_balance = serializers.SerializerMethodField()
+    url = serializers.SerializerMethodField()
     
     class Meta:
         model = Seller
-        exclude= ['token']
+        fields = ('id','name','comissionPercent','trans_count', 'total_balance','url')
+
+    def get_url(self, instance):
+        return f'http://localhost:4200/seller/{instance.access_tokn}'
 
     def get_trans_count(self, instance):
         return instance.total_transacts
