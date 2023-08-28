@@ -27,6 +27,7 @@ urlpatterns = [
     path('products/<str:sell_tokn>/<str:prod_tokn>', ProductView.as_view({'get':'get_url_based_product'}), name="Get product based in url product and seller url "),
     
     path('sellers/', SellerView.as_view({'get':'get_sellers','post':'create_seller'}), name="Get or create sellers"),
+    path('sellers/<int:id>', SellerView.as_view({'delete':'delete_seller_id'}), name="Get or create sellers"),
 
     path('seller/<str:tokn>', SellerView.as_view({'get':'get_seller_profile'}), name="Get or create sellers"),
 

@@ -15,4 +15,8 @@ export class ApiConnectService {
   post(url:string, data:any=null){
     return this.http.post(url, data)
   } 
+
+  delete(url:string) {
+    return this.http.delete(url)
+  }
 }

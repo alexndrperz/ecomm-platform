@@ -18,6 +18,11 @@ export class AdminSellersComponent implements OnInit{
     this.fetchAPI()
   }
 
+  deleteAPIUser(evt:any):void {
+    this.apiServ.delete(`http://127.0.0.1:8000/seller/${evt}`)
+    .subscribe()
+  }
+
   fetchAPI() {
     this.apiServ.fetch(`http://127.0.0.1:8000/sellers/`)
     .pipe(

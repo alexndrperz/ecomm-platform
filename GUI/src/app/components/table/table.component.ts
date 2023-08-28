@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-table',
@@ -9,10 +9,16 @@ export class TableComponent implements OnInit {
   @Input() data:any = [];
   @Input() header:string[] = []
   @Input() seller: boolean = false
+  @Output() deltUser: EventEmitter<any> = new EventEmitter()
+
   copied:boolean = false
   dataHeader:string[] = []
   
   ngOnInit(): void {
+  }
+
+  deleteUser(item:any): void {
+    this.deltUser.emit(item.id)
   }
 
    getHeaderOfData() {

@@ -21,7 +21,6 @@ class Seller(models.Model):
     @property
     def total_balance(self):
         trans_acumulate = self.transact_set.aggregate(total_bal=models.Sum('total'))['total_bal'] 
-        print(trans_acumulate,24)
         if trans_acumulate != 0 and trans_acumulate != None:
             return round(trans_acumulate * self.comissionPercent / 100, 2)
         else:

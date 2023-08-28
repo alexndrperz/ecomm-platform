@@ -8,6 +8,7 @@ import { AdminViewComponent } from './view/admin-view/admin-view.component';
 import { NotFoundComponent } from './view/not-found/not-found.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AdminSellersComponent } from './subviews/admin/admin-sellers/admin-sellers.component';
+import { AlertComponent } from './components/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { AdminSellersComponent } from './subviews/admin/admin-sellers/admin-sell
     AdminViewComponent,
     NotFoundComponent,
     NavbarComponent,
-    AdminSellersComponent
+    AdminSellersComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,

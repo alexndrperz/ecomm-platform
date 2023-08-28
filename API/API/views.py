@@ -80,6 +80,15 @@ class SellerView(viewsets.ModelViewSet):
         serializer= SellerSerializer(queryset, many=True)
         return JsonResponse({'data':serializer.data})
     
+    def delete_seller_id(self, request, id):
+        try: 
+            instance = Seller.objects.get(id=id)
+        except Exception as e:
+            print(e)
+            return JsonResponse({'msg':'El usuario no existe'})
+        instance.delete()
+        return JsonResponse({'msg':'El usuario fue eliminado correctamente'})
+    
 class TransactsView(viewsets.ModelViewSet):
     queryset = Transact.objects.all()
 

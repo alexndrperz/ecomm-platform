@@ -62,7 +62,6 @@ class TransactSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         seller = self.context['seller']
         product = self.context['product']
-        print(product.id)
         transact = Transact.objects.create(product=product, seller=seller, **validated_data)
         return transact
 
